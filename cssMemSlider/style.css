@@ -8,3 +8,137 @@
 body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
+.slider-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.slider-container > div {
+  overflow: hidden;
+  position: relative;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #a0a0a0;
+}
+
+.slider {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  row-gap: 20px;
+}
+
+.slides {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  transition: left 1s cubic-bezier(0.58, 0.02, 0.46, 0.97);
+  position: relative;
+  left: 0%;
+}
+
+.slide {
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.slide-image {
+  max-width: 100%;
+  height: auto;
+}
+
+.menu {
+  display: flex;
+  flex-direction: row;
+  column-gap: 15px;
+}
+
+.menu-button {
+  width: 30px;
+  height: 40px;
+  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-button > div {
+  width: 17px;
+  height: 17px;
+  color: transparent;
+  flex-shrink: 0;
+  background-color: #002066;
+  border-radius: 30px;
+  transition: background-color 0.5s ease-in-out;
+  transition: border-color 0.5s ease-in-out;
+}
+
+.menu-button:hover {
+  cursor: pointer;
+}
+
+.menu-button:hover > div {
+  background-color: white;
+  border: 1px solid white !important;
+}
+
+.input-button {
+  display: none;
+}
+
+#button-1:checked ~ .slides,
+#button-1:checked ~ .slider-footer .slides {
+  left: 0;
+}
+
+#button-2:checked ~ .slides,
+#button-2:checked ~ .slider-footer .slides {
+  left: -100%;
+}
+
+#button-3:checked ~ .slides,
+#button-3:checked ~ .slider-footer .slides {
+  left: -200%;
+}
+
+#button-4:checked ~ .slides,
+#button-4:checked ~ .slider-footer .slides {
+  left: -300%;
+}
+
+#button-5:checked ~ .slides,
+#button-5:checked ~ .slider-footer .slides {
+  left: -400%;
+}
+
+#button-1:checked ~ .slider-footer .menu .menu-button:nth-child(1) > div,
+#button-2:checked ~ .slider-footer .menu .menu-button:nth-child(2) > div,
+#button-3:checked ~ .slider-footer .menu .menu-button:nth-child(3) > div,
+#button-4:checked ~ .slider-footer .menu .menu-button:nth-child(4) > div,
+#button-5:checked ~ .slider-footer .menu .menu-button:nth-child(5) > div {
+  background-color: white;
+  border: 1px solid #002066;
+  width: 16px;
+  height: 16px;
+}
+
+.slider-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media only screen and (max-width: 340px) {
+  .slider-footer {
+    flex-direction: column-reverse;
+    row-gap: 20px;
+  }
+}
+
+@media only screen and (min-width: 341px) {
+  .slider-footer {
+    flex-direction: row;
+  }
+}
